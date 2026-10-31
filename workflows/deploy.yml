@@ -1,0 +1,37 @@
+#name: CI/CD - Generar Manuales y Desplegar
+
+#on:
+#  push:
+#    branches:
+#      - main
+
+#jobs:
+#  build_and_deploy:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Descargar Repositorio
+#        uses: actions/checkout@v4
+#
+#      - name: Configurar Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: 20a
+#
+#      - name: Instalar dependencias (App y Herramientas CI)
+#        run: |
+#          cd monitor-app
+#          npm install --legacy-peer-deps
+#
+#      - name: Instalar Graphviz (Para diagramas)
+#        run: sudo apt-get install -y graphviz
+#
+#      - name: Construir Aplicación y Generar Documentación
+#        run: |
+#          cd monitor-app
+#          npm run build:all
+#
+#      - name: Instalar Firebase CLI
+#        run: npm install -g firebase-tools
+#
+#      - name: Desplegar a Firebase Hosting
+#        run: firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
